@@ -73,8 +73,7 @@ int main()
     try
     {
         const spanner::GraphData graph_data = spanner::GraphLoader::load_edge_list("datasets/test_graph.txt");
-        const spanner::Graph graph(graph_data.num_vertices,graph_data.edges,false);
-        const spanner::CSRGraph csr_graph(graph);
+        const spanner::CSRGraph csr_graph(graph_data.num_vertices,graph_data.edges,false);
 
         spanner::GPUGraph gpu_graph(csr_graph);
 
