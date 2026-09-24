@@ -1,10 +1,12 @@
 #include "gpu/kernels.hpp"
+
 #include <cuda_runtime.h>
+
 #include <thrust/device_ptr.h>
 #include <thrust/sort.h>
 #include <thrust/unique.h>
+
 #include <cstdint>
-#include <limits>
 #include <stdexcept>
 #include <string>
 
@@ -96,7 +98,7 @@ namespace
 
         const std::uint64_t key = keys[index];
 
-        if(key == std::numeric_limits<std::uint64_t>::max())
+        if(key == UINT64_MAX)
         {
             return;
         }
@@ -148,20 +150,18 @@ namespace spanner
             throw std::runtime_error(std::string("Failed to read FGV tree count: ") + cudaGetErrorString(error));
         }
 
-        const int adjacency_entries = offsets[num_vertices];
-
         std::uint64_t* candidate_keys = nullptr;
         int* candidate_destinations = nullptr;
         int* f_count = nullptr;
 
-        error = cudaMalloc(&candidate_keys,static_cast<std::size_t>(adjacency_entries) * sizeof(std::uint64_t));
+        error = cudaMalloc(&candidate_keys,static_cast<std::size_t>(max_edges) * sizeof(std::uint64_t));
 
         if(error != cudaSuccess)
         {
             throw std::runtime_error(std::string("Failed to allocate FGV candidate keys: ") + cudaGetErrorString(error));
         }
 
-        error = cudaMalloc(&candidate_destinations,static_cast<std::size_t>(adjacency_entries) * sizeof(int));
+        error = cudaMalloc(&candidate_destinations,static_cast<std::size_t>(max_edges) * sizeof(int));
 
         if(error != cudaSuccess)
         {
@@ -178,7 +178,7 @@ namespace spanner
             throw std::runtime_error(std::string("Failed to allocate FGV F count: ") + cudaGetErrorString(error));
         }
 
-        error = cudaMemset(candidate_keys,0xFF,static_cast<std::size_t>(adjacency_entries) * sizeof(std::uint64_t));
+        error = cudaMemset(candidate_keys,0xFF,static_cast<std::size_t>(max_edges) * sizeof(std::uint64_t));
 
         if(error != cudaSuccess)
         {
@@ -221,7 +221,7 @@ namespace spanner
         }
 
         thrust::device_ptr<std::uint64_t> key_begin(candidate_keys);
-        thrust::device_ptr<std::uint64_t> key_end(candidate_keys + adjacency_entries);
+        thrust::device_ptr<std::uint64_t> key_end(candidate_keys + max_edges);
         thrust::device_ptr<int> destination_begin(candidate_destinations);
 
         thrust::sort_by_key(key_begin,key_end,destination_begin);
@@ -246,7 +246,7 @@ namespace spanner
                 throw std::runtime_error(std::string("Failed to inspect FGV candidate keys: ") + cudaGetErrorString(error));
             }
 
-            if(key != std::numeric_limits<std::uint64_t>::max())
+            if(key != UINT64_MAX)
             {
                 break;
             }
