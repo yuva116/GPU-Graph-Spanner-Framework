@@ -1,0 +1,4 @@
+C:/Users/Parnab/Desktop/Spanners-Distance-Oracles/GPU-Graph-Spanner-Framework/build/CMakeFiles/spanner_graph.dir
+C:/Users/Parnab/Desktop/Spanners-Distance-Oracles/GPU-Graph-Spanner-Framework/build/CMakeFiles/test_csr.dir
+C:/Users/Parnab/Desktop/Spanners-Distance-Oracles/GPU-Graph-Spanner-Framework/build/CMakeFiles/edit_cache.dir
+C:/Users/Parnab/Desktop/Spanners-Distance-Oracles/GPU-Graph-Spanner-Framework/build/CMakeFiles/rebuild_cache.dir

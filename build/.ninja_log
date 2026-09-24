@@ -1,0 +1,19 @@
+# ninja log v7
+72	1929	8110881357647175	CMakeFiles/spanner_graph.dir/src/validation/correctness.cpp.obj	35e1794af7a4335c
+2	2588	8110881356936331	CMakeFiles/spanner_graph.dir/src/graph/graph.cpp.obj	a222c79d4ea4a0be
+94	3079	8110881357860951	CMakeFiles/test_csr.dir/tests/test_csr.cpp.obj	b9ecf81311d5db25
+11	3173	8110881357023330	CMakeFiles/spanner_graph.dir/src/graph/csr.cpp.obj	96ea9a366407a008
+21	3714	8110881357531340	CMakeFiles/spanner_graph.dir/src/graph/graph_loader.cpp.obj	1ee97ba4a34a8831
+84	4563	8110881357750955	CMakeFiles/spanner_graph.dir/src/utils/timer.cpp.obj	a5db09160746e30b
+4565	8525	8110881402567815	libspanner_graph.a	f5762e23cd308ba0
+8526	9599	8110881442177772	test_csr.exe	6251e72c5ef59176
+33	3192	8110883432887830	CMakeFiles/test_csr.dir/tests/test_csr.cpp.obj	b9ecf81311d5db25
+3194	4970	8110883464492961	test_csr.exe	6251e72c5ef59176
+1671	3454	8111493066031780	CMakeFiles/spanner_graph.dir/src/validation/correctness.cpp.obj	35e1794af7a4335c
+164	4174	8111493050131286	CMakeFiles/spanner_graph.dir/src/graph/graph.cpp.obj	a222c79d4ea4a0be
+1638	5016	8111493064870148	CMakeFiles/spanner_graph.dir/src/graph/csr.cpp.obj	96ea9a366407a008
+1651	5266	8111493065031513	CMakeFiles/spanner_graph.dir/src/graph/graph_loader.cpp.obj	1ee97ba4a34a8831
+1774	6909	8111493066458943	CMakeFiles/spanner_graph.dir/src/utils/timer.cpp.obj	a5db09160746e30b
+1809	9476	8111493066720524	CMakeFiles/test_csr.dir/tests/test_csr.cpp.obj	b9ecf81311d5db25
+6910	12364	8111493117598408	libspanner_graph.a	f5762e23cd308ba0
+12365	13577	8111493172139200	test_csr.exe	6251e72c5ef59176
