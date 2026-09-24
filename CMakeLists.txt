@@ -29,6 +29,7 @@ add_library(spanner_gpu STATIC
     src/gpu/fgv/fgv_shift.cu
     src/gpu/fgv/fgv_cluster.cu
     src/gpu/fgv/fgv_spanner.cu
+    src/validation/gpu_stretch.cu
     src/algorithms/fgv/fgv.cpp
 )
 
